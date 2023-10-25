@@ -6,9 +6,15 @@ const TituloListagem = styled.h1`
 `;
 
 const ContainerListagem = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @media screen and (min-width: 400px){
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
 `;
 
 export {TituloListagem, ContainerListagem}

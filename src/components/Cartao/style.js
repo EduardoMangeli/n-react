@@ -6,7 +6,7 @@ const CartaoContainer = styled.div`
     flex-direction: column;
     border: 1px black solid;
     min-width: 8em;
-    
+    align-items: center;
 
     p {
         text-align: center;

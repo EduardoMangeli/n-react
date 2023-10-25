@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Cartao from "../../components/Cartao/Cartao";
 import { ContainerListagem, TituloListagem } from "./style";
 
@@ -40,6 +41,7 @@ const Listagem = () => (
     <ContainerListagem>
         {elementos}
     </ContainerListagem>
+    <Link to='/'>Voltar ao início</Link>
     </>
 );
 
