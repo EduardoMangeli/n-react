@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import Cartao from "../../components/Cartao/Cartao";
 import { ContainerListagem, TituloListagem } from "./style";
+import { useState } from "react";
 
-const dados = [
+const predados = [
     {
         'titulo': 'casa',
         'letra': 'a'
@@ -22,27 +23,52 @@ const dados = [
     {
         'titulo': 'boneco',
         'letra': 'e'
+    },
+    {
+        'titulo' : 'asdrúbal',
+        'letra' : 'f'
     }
-]
+];
 
-const elementos = dados.map( (el, i) => (
-    <Cartao 
-        key={i}
-        titulo={el.titulo}
-        letra={el.letra}
-    />
-))
+const Listagem = () => {
+    const [dados, setDados] = useState(predados);
 
-const Listagem = () => (
-    <>
-    <TituloListagem>
-        Listagem de elementos
-    </TituloListagem>
-    <ContainerListagem>
-        {elementos}
-    </ContainerListagem>
-    <Link to='/'>Voltar ao início</Link>
-    </>
-);
+    const filtra = (entrada) => {
+        setDados(predados.filter(
+            (e) => {
+                const titulo = e.titulo.toLowerCase()
+                .includes(entrada.toLowerCase())
+                const letra = e.letra.toLowerCase()
+                .includes(entrada.toLowerCase())
+                return titulo || letra;
+                }
+            ))
+    }
+
+    return (
+        <>
+        <TituloListagem>
+            Listagem de elementos
+        </TituloListagem>
+        <input 
+            type='text' 
+            onChange={(e)=> filtra(e.target.value)}
+            />
+        <ContainerListagem>
+            {
+                dados.map( (el, i) => (
+                    <Cartao 
+                        key={i}
+                        titulo={el.titulo}
+                        letra={el.letra}
+                    />
+                    )
+                )
+            }
+        </ContainerListagem>
+        <Link to='/'>Voltar ao início</Link>
+        </>
+    );
+};
 
 export default Listagem;
