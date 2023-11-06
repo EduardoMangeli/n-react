@@ -10,11 +10,15 @@ const CartaoContainer = styled.div`
 
     p {
         text-align: center;
+        font-family: 'Delius Unicase', cursive;
+        font-weight: bold;
     }
 `;
 
 const Titulo = styled.h3`
     color: coral;
+    font-family: 'Delius Unicase', cursive;
+    font-weight: 400;
 `;
 
 export {CartaoContainer, Titulo}
